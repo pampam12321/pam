@@ -1,0 +1,7 @@
+snd_dir = path.join(path.dirname(__file__), 'sounds')  # подключение папки с музыкой
+pygame.mixer.music.load(path.join(snd_dir, 'tgfcoder-FrozenJam-SeamlessLoop.mp3'))  # загрузка музыки
+pygame.mixer.music.set_volume(0.4)  # установка громкости музыки
+
+
+
+pygame.mixer.music.play(loops=-1)

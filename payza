@@ -1,0 +1,49 @@
+import pygame
+import sys
+
+# Инициализация Pygame
+pygame.init()
+
+# Установим размеры окна
+window_size = (800, 600)
+screen = pygame.display.set_mode(window_size)
+pygame.display.set_caption("Пауза в игре")
+
+# Цвета
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
+# Флаг для отслеживания состояния паузы
+paused = False
+
+# Основной игровой цикл
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_p:
+                paused = not paused  # Инвертируем состояние паузы
+
+    # Отрисовка
+    screen.fill(WHITE)
+
+    # Если игра не на паузе, обновляем игровой мир
+    if not paused:
+        # Здесь должен быть ваш код обновления игрового мира
+        pass
+
+    # Отрисовка сообщения "Пауза", если игра на паузе
+    if paused:
+        font = pygame.font.SysFont(None, 48)
+        text = font.render("Пауза", True, RED)
+        text_rect = text.get_rect(center=(WIDTH[0] // 2,HEIGHT[1] // 2))
+        screen.blit(text, text_rect)
+
+    # Обновление экрана
+    pygame.display.flip()
+
+# Завершение работы Pygame
+pygame.quit()
+sys.exit()

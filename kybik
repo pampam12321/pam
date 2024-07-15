@@ -1,8 +1,3 @@
-word = [
-    "ВАУ!!!","ЖАЛЬ","ХОРОШО ИГРАЕШЬ","Норм",
-    "GAME OVER","ИГРАТ ОКОНЧЕНА","жалко"
-]
-
 import pygame
 import random
 
@@ -12,7 +7,7 @@ pygame.init()
 # Размеры экрана
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Geometry Dash")
+pygame.display.set_caption("Бегущий квадрат")
 
 # Цвета
 RED = (255, 0, 0)
@@ -73,10 +68,10 @@ while running:
     # Генерация препятствий
     current_time = pygame.time.get_ticks()
     if current_time - last_obstacle > obstacle_interval:
-        obstacle_width = random.randint(30, 30)
-        obstacle_height = random.randint(30, 30)
+        obstacle_width = random.randint(30, 70)
+        obstacle_height = random.randint(30, 70)
         obstacle_x = WIDTH
-        obstacle_y = random.randint(540, HEIGHT - obstacle_height - 20)
+        obstacle_y = random.randint(0, HEIGHT - obstacle_height - 10)
         obstacles.append((obstacle_x, obstacle_y, obstacle_width, obstacle_height))
         last_obstacle = current_time
 
@@ -104,6 +99,5 @@ while running:
 
     pygame.display.flip()
     pygame.time.Clock().tick(60)
-
 
 pygame.quit()
